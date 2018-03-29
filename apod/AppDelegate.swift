@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let url = URL(string: "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")!
+        let task = URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            if let data = data,
+                let string = String(data: data, encoding: .utf8) {
+                print(string)
+            }
+        }
+        task.resume()
+        
         return true
     }
 
