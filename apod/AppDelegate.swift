@@ -28,9 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let baseURL = URL(string: "https://api.nasa.gov/planetary/apod")!
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let currDate = dateFormatter.string(from: Date.init())
         let query: [String: String] = [
             "api_key": "DEMO_KEY",
-            "date": "2011-07-13"
+            "date": currDate
         ]
         let url = baseURL.withQueries(query)!
         let task = URLSession.shared.dataTask(with: url) {
