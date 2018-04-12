@@ -9,16 +9,6 @@
 import UIKit
 import Foundation
 
-extension URL {
-    func withQueries(_ queries: [String: String]) -> URL? {
-        var components = URLComponents(url: self, resolvingAgainstBaseURL: true)
-        components?.queryItems = queries.flatMap {
-            URLQueryItem(name: $0.0, value: $0.1)
-        }
-        return components?.url
-    }
-}
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -27,23 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let baseURL = URL(string: "https://api.nasa.gov/planetary/apod")!
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let currDate = dateFormatter.string(from: Date.init())
-        let query: [String: String] = [
-            "api_key": "DEMO_KEY",
-            "date": currDate
-        ]
-        let url = baseURL.withQueries(query)!
-        let task = URLSession.shared.dataTask(with: url) {
-            (data, response, error) in
-            if let data = data,
-                let string = String(data: data, encoding: .utf8) {
-                print(string)
-            }
-        }
-        task.resume()
         
         return true
     }
