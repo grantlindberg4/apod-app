@@ -6,19 +6,18 @@
 //  Copyright © 2018 Lindberg. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 class PhotoInfoController {
     func fetchPhotoInfo(completion: @escaping (PhotoInfo?) -> Void) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let baseURL = URL(string: "https://api.nasa.gov/planetary/apod")!
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let currDate = dateFormatter.string(from: Date.init())
         // Bad video date
 //        let currDate = "2018-01-22"
         let query: [String: String] = [
             "api_key": "DEMO_KEY",
-            "date": currDate
+            "date": appDelegate.selectedDate!
         ]
         let url = baseURL.withQueries(query)!
         let task = URLSession.shared.dataTask(with: url) {
