@@ -14,6 +14,8 @@ class PhotoInfoController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let currDate = dateFormatter.string(from: Date.init())
+        // Bad video date
+//        let currDate = "2018-01-22"
         let query: [String: String] = [
             "api_key": "DEMO_KEY",
             "date": currDate

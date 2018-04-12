@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         descriptionLabel.text = ""
         copyrightLabel.text = ""
         
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         photoInfoController.fetchPhotoInfo { (photoInfo) in
             if let photoInfo = photoInfo {
                 self.updateUI(with: photoInfo)
@@ -38,6 +39,13 @@ class ViewController: UIViewController {
         guard let url = photoInfo.url.withHTTPS() else { return }
         
         let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+//            if photoInfo.media_type != "image" {
+//                UIApplication.shared.open(URL(string : "http://www.stackoverflow.com")!, options: [:], completionHandler: { (status) in
+//
+//                })
+//
+//                return
+//            }
             if let data = data,
                 let image = UIImage(data: data) {
                 DispatchQueue.main.async {
@@ -54,6 +62,7 @@ class ViewController: UIViewController {
                 }
             }
         })
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         task.resume()
     }
 }
