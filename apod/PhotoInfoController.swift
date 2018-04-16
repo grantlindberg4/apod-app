@@ -12,7 +12,8 @@ import Foundation
 let API_KEY = "8lxcX2I3ErblI9o8cAuYDypoQPRafkLttcBqkO3O"
 
 class PhotoInfoController {
-    func fetchPhotoInfo(completion: @escaping (PhotoInfo?) -> Void) {
+    func fetchPhotoInfo(completion: @escaping (PhotoInfo?) -> Void) -> Bool {
+        var fetchedData = false
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let baseURL = URL(string: "https://api.nasa.gov/planetary/apod")!
         // Bad video date
@@ -28,6 +29,7 @@ class PhotoInfoController {
             let jsonDecoder = JSONDecoder()
             if let data = data,
                 let photoInfo = try? jsonDecoder.decode(PhotoInfo.self, from: data) {
+                fetchedData = true
                 completion(photoInfo)
             }
             else {
@@ -36,5 +38,7 @@ class PhotoInfoController {
             }
         }
         task.resume()
+
+        return fetchedData
     }
 }

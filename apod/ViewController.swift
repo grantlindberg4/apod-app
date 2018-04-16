@@ -23,10 +23,19 @@ class ViewController: UIViewController {
         copyrightLabel.text = ""
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        photoInfoController.fetchPhotoInfo { (photoInfo) in
+        let fetchedData = photoInfoController.fetchPhotoInfo { (photoInfo) in
             if let photoInfo = photoInfo {
                 self.updateUI(with: photoInfo)
             }
+        }
+
+        if !fetchedData {
+            let alert = UIAlertController(title: "Failed to retrieve information",
+                                          message: "There may be no data, the data was not serialized, or the selected date's media type may be a video",
+                                          preferredStyle: .alert)
+            let confirm = UIAlertAction(title: "Confirm", style: .default)
+            alert.addAction(confirm)
+            self.present(alert, animated: true, completion: nil)
         }
     }
 
