@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oAZ-YU-9fs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oAZ-YU-9fs">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -81,10 +81,10 @@
             </objects>
             <point key="canvasLocation" x="456.80000000000001" y="87.706146926536732"/>
         </scene>
-        <!--View Controller-->
+        <!--Date View Controller-->
         <scene sceneID="ijD-Xu-rha">
             <objects>
-                <viewController id="WjM-pk-BTm" sceneMemberID="viewController">
+                <viewController id="WjM-pk-BTm" customClass="DateViewController" customModule="apod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Nq-hP-WO1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,6 +96,7 @@
                                 </date>
                                 <connections>
                                     <action selector="datePickerChanged:" destination="GUm-sH-1Dr" eventType="valueChanged" id="1xn-Yf-XA2"/>
+                                    <action selector="datePickerChanged:" destination="WjM-pk-BTm" eventType="valueChanged" id="g4Q-vC-Jry"/>
                                 </connections>
                             </datePicker>
                         </subviews>
