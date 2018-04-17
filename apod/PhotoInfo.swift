@@ -13,14 +13,12 @@ struct PhotoInfo: Codable {
     var description: String
     var url: URL
     var copyright: String?
-    var media_type: String?
     
     enum Keys: String, CodingKey {
         case title
         case description = "explanation"
         case url
         case copyright
-        case media_type
     }
     
     init(from decoder: Decoder) throws {
@@ -28,7 +26,6 @@ struct PhotoInfo: Codable {
         self.title = try valueContainer.decode(String.self, forKey: Keys.title)
         self.description = try valueContainer.decode(String.self, forKey: Keys.description)
         self.url = try valueContainer.decode(URL.self, forKey: Keys.url)
-        self.copyright = try valueContainer.decode(String.self, forKey: Keys.copyright)
-        self.media_type = try valueContainer.decode(String.self, forKey: Keys.media_type)
+        self.copyright = try? valueContainer.decode(String.self, forKey: Keys.copyright)
     }
 }

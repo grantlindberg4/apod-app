@@ -23,19 +23,18 @@ class ViewController: UIViewController {
         copyrightLabel.text = ""
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let fetchedData = photoInfoController.fetchPhotoInfo { (photoInfo) in
+        photoInfoController.fetchPhotoInfo { (photoInfo) in
             if let photoInfo = photoInfo {
                 self.updateUI(with: photoInfo)
             }
-        }
-
-        if !fetchedData {
-            let alert = UIAlertController(title: "Failed to retrieve information",
-                                          message: "There may be no data, the data was not serialized, or the selected date's media type may be a video",
-                                          preferredStyle: .alert)
-            let confirm = UIAlertAction(title: "Confirm", style: .default)
-            alert.addAction(confirm)
-            self.present(alert, animated: true, completion: nil)
+            else {
+                let alert = UIAlertController(title: "Failed to retrieve information",
+                                              message: "There may be no data, the data was not serialized, or the selected date's media type may be a video",
+                                              preferredStyle: .alert)
+                let confirm = UIAlertAction(title: "Confirm", style: .default)
+                alert.addAction(confirm)
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
 
@@ -48,13 +47,6 @@ class ViewController: UIViewController {
         guard let url = photoInfo.url.withHTTPS() else { return }
         
         let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-//            if photoInfo.media_type != "image" {
-//                UIApplication.shared.open(URL(string : "http://www.stackoverflow.com")!, options: [:], completionHandler: { (status) in
-//
-//                })
-//
-//                return
-//            }
             if let data = data,
                 let image = UIImage(data: data) {
                 DispatchQueue.main.async {
