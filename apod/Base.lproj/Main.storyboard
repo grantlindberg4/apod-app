@@ -22,51 +22,64 @@
                                 <rect key="frame" x="0.0" y="269" width="375" height="128"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ti9-a1-jZk">
-                                        <rect key="frame" x="0.0" y="-238" width="375" height="524"/>
+                                        <rect key="frame" x="0.0" y="-238" width="375" height="603"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uon-Hm-dDM" userLabel="ImageView">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="429"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="300" id="S9L-r5-oFL"/>
+                                                </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0t-jT-xbU" userLabel="DescriptionLabel">
-                                                <rect key="frame" x="0.0" y="437" width="375" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="308" width="375" height="266.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZM-3Y-YJd" userLabel="CopyrightLabel">
-                                                <rect key="frame" x="0.0" y="465.5" width="375" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="582.5" width="375" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yp0-Ub-EWF" userLabel="SelectDateButton">
-                                                <rect key="frame" x="0.0" y="494" width="375" height="30"/>
-                                                <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Select Date">
-                                                    <color key="titleColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="WjM-pk-BTm" kind="show" id="GT1-W1-qKM"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="wZM-3Y-YJd" secondAttribute="trailing" id="149-LR-pb6"/>
+                                            <constraint firstItem="wZM-3Y-YJd" firstAttribute="top" secondItem="e0t-jT-xbU" secondAttribute="bottom" id="24h-6x-naw"/>
+                                            <constraint firstItem="e0t-jT-xbU" firstAttribute="leading" secondItem="ti9-a1-jZk" secondAttribute="leading" id="8bs-ny-ACa"/>
+                                            <constraint firstAttribute="trailing" secondItem="e0t-jT-xbU" secondAttribute="trailing" id="CL1-cB-PID"/>
+                                            <constraint firstAttribute="bottom" secondItem="wZM-3Y-YJd" secondAttribute="bottom" id="F2o-G8-P9c"/>
+                                            <constraint firstItem="e0t-jT-xbU" firstAttribute="top" secondItem="uon-Hm-dDM" secondAttribute="bottom" id="USo-7d-3xt"/>
+                                            <constraint firstItem="wZM-3Y-YJd" firstAttribute="leading" secondItem="ti9-a1-jZk" secondAttribute="leading" id="cFq-ZF-1Qn"/>
+                                            <constraint firstItem="wZM-3Y-YJd" firstAttribute="top" secondItem="e0t-jT-xbU" secondAttribute="bottom" constant="8" id="d4c-oO-XRZ"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="ti9-a1-jZk" secondAttribute="trailing" id="KlG-b5-mGD"/>
-                                    <constraint firstItem="ti9-a1-jZk" firstAttribute="top" secondItem="r2Q-CJ-Gwz" secondAttribute="top" id="QfQ-yp-Pfx"/>
-                                    <constraint firstAttribute="bottom" secondItem="ti9-a1-jZk" secondAttribute="bottom" id="XBd-zS-3nE"/>
-                                    <constraint firstItem="ti9-a1-jZk" firstAttribute="width" secondItem="r2Q-CJ-Gwz" secondAttribute="width" id="Ye0-Fj-Y0F"/>
-                                    <constraint firstItem="ti9-a1-jZk" firstAttribute="leading" secondItem="r2Q-CJ-Gwz" secondAttribute="leading" id="rng-ax-kAH"/>
+                                    <constraint firstItem="ti9-a1-jZk" firstAttribute="height" secondItem="r2Q-CJ-Gwz" secondAttribute="height" id="CXH-Fd-sN9"/>
+                                    <constraint firstItem="ti9-a1-jZk" firstAttribute="width" secondItem="r2Q-CJ-Gwz" secondAttribute="width" id="tAa-Kt-EM3"/>
                                 </constraints>
                             </scrollView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVU-kB-lrU" userLabel="Toolbar">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Select Date" id="TNk-1o-ClU" userLabel="SelectDateItem">
+                                        <connections>
+                                            <segue destination="WjM-pk-BTm" kind="show" id="qaC-UZ-d1h"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="gVU-kB-lrU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Syx-6r-Emc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="r2Q-CJ-Gwz" secondAttribute="trailing" id="a2e-8G-wts"/>
+                            <constraint firstItem="gVU-kB-lrU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dUB-ho-QYg"/>
                             <constraint firstItem="r2Q-CJ-Gwz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oNf-Rk-D7f"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="r2Q-CJ-Gwz" secondAttribute="bottom" id="v4o-ws-TQW"/>
                             <constraint firstItem="r2Q-CJ-Gwz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vV0-F1-Ejp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gVU-kB-lrU" secondAttribute="bottom" id="x6w-Io-BNm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
