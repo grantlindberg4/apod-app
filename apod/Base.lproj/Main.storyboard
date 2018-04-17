@@ -102,7 +102,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="a2L-NU-WgM">
+                            <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="a2L-NU-WgM">
                                 <rect key="frame" x="0.0" y="239" width="375" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="545256171.71753001">
                                     <!--2018-04-12 20:02:51 +0000-->
@@ -112,11 +112,24 @@
                                     <action selector="datePickerChanged:" destination="WjM-pk-BTm" eventType="valueChanged" id="g4Q-vC-Jry"/>
                                 </connections>
                             </datePicker>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Put-vR-tnR">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Update Date" id="IwR-UF-bMd">
+                                        <connections>
+                                            <segue destination="GUm-sH-1Dr" kind="unwind" unwindAction="unwindFromDateViewControllerWithUnwindSegue:" id="9aF-ND-ePJ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Put-vR-tnR" firstAttribute="leading" secondItem="of0-Nt-GVp" secondAttribute="leading" id="FRb-qr-8QS"/>
                             <constraint firstItem="a2L-NU-WgM" firstAttribute="trailing" secondItem="of0-Nt-GVp" secondAttribute="trailing" id="GAm-gR-ce8"/>
+                            <constraint firstItem="of0-Nt-GVp" firstAttribute="bottom" secondItem="Put-vR-tnR" secondAttribute="bottom" id="M66-1I-0qI"/>
                             <constraint firstItem="a2L-NU-WgM" firstAttribute="leading" secondItem="of0-Nt-GVp" secondAttribute="leading" id="SBa-6T-hW7"/>
+                            <constraint firstItem="Put-vR-tnR" firstAttribute="trailing" secondItem="of0-Nt-GVp" secondAttribute="trailing" id="bI1-fS-L6j"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="of0-Nt-GVp"/>
                     </view>

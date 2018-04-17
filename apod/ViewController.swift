@@ -22,20 +22,7 @@ class ViewController: UIViewController {
         descriptionLabel.text = ""
         copyrightLabel.text = ""
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        photoInfoController.fetchPhotoInfo { (photoInfo) in
-            if let photoInfo = photoInfo {
-                self.updateUI(with: photoInfo)
-            }
-            else {
-                let alert = UIAlertController(title: "Failed to retrieve information",
-                                              message: "There may be no data, the data was not serialized, or the selected date's media type may be a video",
-                                              preferredStyle: .alert)
-                let confirm = UIAlertAction(title: "Confirm", style: .default)
-                alert.addAction(confirm)
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
+        self.renderPhotoInfoToScreen()
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,6 +52,27 @@ class ViewController: UIViewController {
         })
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         task.resume()
+    }
+    
+    func renderPhotoInfoToScreen() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        photoInfoController.fetchPhotoInfo { (photoInfo) in
+            if let photoInfo = photoInfo {
+                self.updateUI(with: photoInfo)
+            }
+            else {
+                let alert = UIAlertController(title: "Failed to retrieve information",
+                                              message: "There may be no data, the data was not serialized, or the selected date's media type may be a video",
+                                              preferredStyle: .alert)
+                let confirm = UIAlertAction(title: "Confirm", style: .default)
+                alert.addAction(confirm)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    @IBAction func unwindFromDateViewController(unwindSegue: UIStoryboardSegue) {
+        self.renderPhotoInfoToScreen()
     }
 }
 
